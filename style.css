@@ -1,0 +1,1086 @@
+
+    /* ===================== RESET ===================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 14.5px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #c9d6e3;
+      color: #1a2332;
+      line-height: 1.55;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ===================== PAGE ===================== */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      grid-template-rows: auto auto;
+      grid-auto-rows: auto;
+      box-shadow: 0 12px 50px rgba(0, 0, 0, .22);
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Dark sidebar bg extends the FULL page height (not just content height) */
+    .page::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 220px;
+      background: #0d1b2e;
+      z-index: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      grid-column: 1 / -1;
+      background: #0f1e34;
+      display: flex;
+      align-items: stretch;
+      position: relative;
+      z-index: 2;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Left accent strip: photo + name */
+    .header-accent {
+      width: 220px;
+      background: #0a1524;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 18px 20px;
+      position: relative;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .header-accent::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      bottom: 20%;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(42, 127, 255, .5), transparent);
+    }
+
+    /* Profile photo circle */
+    .photo-ring {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      border: 3px solid #2a7fff;
+      background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      box-shadow: 0 0 0 4px rgba(42, 127, 255, .18), 0 6px 20px rgba(0, 0, 0, .4);
+      overflow: hidden;
+      flex-shrink: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* If you have a real photo, replace this SVG with <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /> */
+    .photo-ring svg {
+      width: 54px;
+      height: 54px;
+    }
+
+    .hdr-name {
+      text-align: center;
+    }
+
+    .hdr-name .fn {
+      font-family: 'Poppins', sans-serif;
+      font-size: .78rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .hdr-name .ln {
+      font-family: 'Poppins', sans-serif;
+      font-size: .78rem;
+      font-weight: 800;
+      color: #5db8ff;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* Right header info */
+    .header-info {
+      flex: 1;
+      padding: 20px 26px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .header-info h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -.2px;
+    }
+
+    .hdr-title {
+      font-size: .79rem;
+      font-weight: 500;
+      color: #6aaee8;
+      margin-top: 4px;
+      letter-spacing: .3px;
+    }
+
+    .hdr-divider {
+      width: 100%;
+      height: 2.5px;
+      background: linear-gradient(90deg, #2a7fff, #0ea5e9);
+      border-radius: 2px;
+      margin: 9px 0;
+    }
+
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 18px;
+    }
+
+    .ci {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .72rem;
+      color: #8fb5d5;
+    }
+
+    .ci svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: #2a7fff;
+      stroke-width: 2;
+      flex-shrink: 0;
+    }
+
+    .ci a {
+      color: #6aaee8;
+      text-decoration: none;
+    }
+
+    .ci a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===================== SIDEBAR ===================== */
+    .sidebar {
+      background: transparent;
+      /* bg painted by .page::after pseudo-element */
+      padding: 18px 15px 22px;
+      position: relative;
+      z-index: 1;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sb {
+      margin-bottom: 0;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(42, 127, 255, .1);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sb:first-child {
+      padding-top: 0;
+    }
+
+    .sb:last-child {
+      border-bottom: none;
+      padding-bottom: 4px;
+    }
+
+    .sbh {
+      font-family: 'Poppins', sans-serif;
+      font-size: .58rem;
+      font-weight: 700;
+      color: #2a7fff;
+      letter-spacing: 1.9px;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(42, 127, 255, .2);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Skill groups */
+    .sgl {
+      font-size: .61rem;
+      font-weight: 700;
+      color: #3d6e97;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 4px;
+      margin-top: 8px;
+    }
+
+    .sgl:first-child {
+      margin-top: 0;
+    }
+
+    .tgs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .tg {
+      font-size: .63rem;
+      padding: 2px 6px;
+      border-radius: 3px;
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .tb {
+      background: rgba(42, 127, 255, .15);
+      border: 1px solid rgba(42, 127, 255, .3);
+      color: #7eb8f7;
+      font-weight: 600;
+    }
+
+    .td {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .09);
+      color: #7a9aba;
+    }
+
+    /* Proficiency */
+    .pbi {
+      margin-bottom: 8px;
+    }
+
+    .pbr {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3px;
+    }
+
+    .pbl {
+      font-size: .68rem;
+      color: #8fb5d5;
+    }
+
+    .pblv {
+      font-size: .58rem;
+      color: #2d5370;
+      font-style: italic;
+    }
+
+    .pbbg {
+      height: 4px;
+      background: rgba(255, 255, 255, .08);
+      border-radius: 2px;
+      overflow: hidden;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .pbf {
+      height: 100%;
+      background: linear-gradient(90deg, #1d4ed8, #0ea5e9);
+      border-radius: 2px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Education */
+    .edc {
+      margin-bottom: 10px;
+    }
+
+    .edeg {
+      font-size: .72rem;
+      font-weight: 600;
+      color: #c6ddf5;
+      line-height: 1.3;
+    }
+
+    .eschl {
+      font-size: .65rem;
+      color: #4e7a9a;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    .eyr {
+      font-size: .6rem;
+      color: #2d4f6a;
+      margin-top: 2px;
+    }
+
+    /* Achievements */
+    .aci {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 6px;
+      align-items: flex-start;
+    }
+
+    .aicon {
+      font-size: .72rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .atxt {
+      font-size: .67rem;
+      color: #6a8ea8;
+      line-height: 1.4;
+    }
+
+    .atxt strong {
+      color: #3d8fc4;
+      font-weight: 600;
+    }
+
+    /* Languages */
+    .lgi {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 7px;
+    }
+
+    .lgn {
+      font-size: .7rem;
+      color: #c6ddf5;
+      font-weight: 500;
+    }
+
+    .lgd {
+      display: flex;
+      gap: 3px;
+    }
+
+    .ldd {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .lon {
+      background: #2a7fff;
+    }
+
+    .loff {
+      background: rgba(255, 255, 255, .1);
+    }
+
+    /* Hobbies */
+    .htg {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .09);
+      color: #5a7d96;
+      font-size: .63rem;
+      padding: 3px 7px;
+      border-radius: 9px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ===================== MAIN ===================== */
+    .main {
+      padding: 18px 22px 24px;
+      background: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sec {
+      margin-bottom: 18px;
+    }
+
+    .sec:last-child {
+      margin-bottom: 0;
+    }
+
+    .sech {
+      font-family: 'Poppins', sans-serif;
+      font-size: .61rem;
+      font-weight: 700;
+      color: #1d4ed8;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+      position: relative;
+    }
+
+    .sech::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1.5px;
+      background: #eaeff8;
+    }
+
+    .sech::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1.5px;
+      background: #2a7fff;
+      z-index: 1;
+    }
+
+    /* Summary */
+    .sumtxt {
+      font-size: .77rem;
+      color: #2c3e55;
+      line-height: 1.66;
+      text-align: justify;
+      padding-left: 10px;
+      border-left: 2.5px solid transparent;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .sumtxt strong {
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+
+    .sumtxt em {
+      font-style: italic;
+      color: #3a5a8a;
+    }
+
+    /* Experience cards */
+    .exc {
+      margin-bottom: 10px;
+      padding: 10px 13px;
+      border-radius: 5px;
+      border: 1px solid #e6edf8;
+      background: #fafbff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .exc:last-child {
+      margin-bottom: 0;
+    }
+
+    .ext {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .exco {
+      font-family: 'Poppins', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      color: #0d1b2e;
+    }
+
+    .exco span {
+      font-size: .68rem;
+      font-weight: 400;
+      color: #6b7f96;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .exb {
+      font-size: .61rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9px;
+      white-space: nowrap;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .bcur {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
+
+    .bten {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .exrs {
+      margin-top: 6px;
+    }
+
+    .exrr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3px 0;
+      gap: 8px;
+    }
+
+    .exrr+.exrr {
+      border-top: 1px dashed #dce7f5;
+    }
+
+    .exrl {
+      font-size: .74rem;
+      font-weight: 600;
+      color: #1e3a5f;
+    }
+
+    .exrd {
+      font-size: .67rem;
+      color: #7a9aba;
+      white-space: nowrap;
+    }
+
+    /* Project cards */
+    .prc {
+      margin-bottom: 11px;
+      padding: 11px 13px 11px 14px;
+      border-radius: 5px;
+      border: 1px solid #e6edf8;
+      border-left: 3px solid #2a7fff;
+      background: #fafbff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .prc:last-child {
+      margin-bottom: 0;
+    }
+
+    .prn {
+      font-family: 'Poppins', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      color: #0d1b2e;
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+
+    .prcl {
+      font-size: .65rem;
+      color: #5a7fa0;
+      margin-bottom: 5px;
+    }
+
+    .prcl strong {
+      color: #2a7fff;
+      font-weight: 600;
+    }
+
+    .prm {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin-bottom: 6px;
+    }
+
+    .pt {
+      font-size: .61rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 8px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .ptr {
+      background: #f0fdf4;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+
+    .ptd {
+      background: #fff7ed;
+      color: #c2410c;
+      border: 1px solid #fed7aa;
+    }
+
+    .ptt {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .bll {
+      font-size: .62rem;
+      font-weight: 700;
+      color: #8796aa;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      margin-bottom: 4px;
+    }
+
+    .bls {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bls li {
+      font-size: .74rem;
+      color: #2c3e55;
+      padding: 2px 0 2px 13px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .bls li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #2a7fff;
+      font-size: .62rem;
+      top: 4px;
+    }
+
+    .bls li strong {
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+
+    /* Competencies */
+    .ctgs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .ctg {
+      background: #f0f5ff;
+      border: 1px solid #c7d8f5;
+      color: #1e3a6e;
+      font-size: .68rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 4px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ===================== SCREEN-ONLY ANIMATIONS ===================== */
+    @media screen {
+
+      /* ---------- Keyframes ---------- */
+      @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-24px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeInLeft {
+        from { opacity: 0; transform: translateX(-20px); }
+        to   { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes fadeInRight {
+        from { opacity: 0; transform: translateX(20px); }
+        to   { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes pulseRing {
+        0%,100% { box-shadow: 0 0 0 4px rgba(42,127,255,.18), 0 6px 20px rgba(0,0,0,.4); }
+        50%      { box-shadow: 0 0 0 11px rgba(42,127,255,.3), 0 6px 30px rgba(42,127,255,.38); }
+      }
+      @keyframes bgFloat {
+        0%,100% { background-position: 0% 50%; }
+        50%      { background-position: 100% 50%; }
+      }
+      @keyframes badgePulse {
+        0%,100% { box-shadow: 0 0 0 0 rgba(21,128,61,0); }
+        50%      { box-shadow: 0 0 0 5px rgba(21,128,61,.22); }
+      }
+      @keyframes shimmerFlow {
+        0%   { background-position: -200% center; }
+        100% { background-position:  200% center; }
+      }
+      @keyframes headerGlow {
+        0%,100% { opacity: .35; }
+        50%      { opacity: .85; }
+      }
+      @keyframes dotSpin {
+        0%   { transform: rotate(0deg) translateX(4px) rotate(0deg); }
+        100% { transform: rotate(360deg) translateX(4px) rotate(-360deg); }
+      }
+
+      /* ---------- Body background ---------- */
+      body {
+        background: linear-gradient(-45deg, #aabfd5, #c9d6e3, #b9cedf, #d1dce8);
+        background-size: 400% 400%;
+        animation: bgFloat 16s ease infinite;
+      }
+
+      /* ---------- Page entrance ---------- */
+      .page {
+        opacity: 1;
+      }
+
+      /* ---------- Header ambient glow overlay ---------- */
+      .header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(ellipse at 72% 50%, rgba(42,127,255,.13) 0%, transparent 68%);
+        animation: headerGlow 6s ease-in-out infinite;
+        z-index: 0;
+      }
+
+      /* ---------- Photo ring pulse ---------- */
+      .photo-ring {
+        animation: pulseRing 3.6s ease-in-out infinite;
+      }
+
+      /* ---------- Header elements ---------- */
+      .hdr-name,
+      .header-info h1,
+      .hdr-title,
+      .hdr-divider,
+      .contacts,
+      .sidebar .sb {
+        opacity: 1;
+      }
+
+      /* ---------- Proficiency bars ---------- */
+      .pbf {
+        transition: width 1.4s cubic-bezier(.16,1,.3,1);
+      }
+
+      /* ---------- Section scroll reveal ---------- */
+      .sec {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ---------- Section heading underline ---------- */
+      .sech::before {
+        width: 100%;
+      }
+
+      /* ---------- Experience card hover ---------- */
+      .exc {
+        transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      }
+      .exc:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 32px rgba(42,127,255,.14);
+        border-color: #bad0f0;
+      }
+
+      /* ---------- Project card hover ---------- */
+      .prc {
+        transition: transform .22s ease, box-shadow .22s ease;
+      }
+      .prc:hover {
+        transform: translateY(-3px) translateX(3px);
+        box-shadow: 0 10px 32px rgba(42,127,255,.13);
+      }
+
+      /* ---------- Skill tag hover ---------- */
+      .tg {
+        transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+        cursor: default;
+      }
+      .tb:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(42,127,255,.38);
+        background: rgba(42,127,255,.28);
+      }
+      .td:hover {
+        transform: translateY(-2px);
+        background: rgba(255,255,255,.1);
+      }
+
+      /* ---------- Competency tag hover ---------- */
+      .ctg {
+        transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+        cursor: default;
+      }
+      .ctg:hover {
+        background: #dceaff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(42,127,255,.2);
+      }
+
+      /* ---------- Contact item hover ---------- */
+      .ci {
+        transition: color .15s ease, transform .15s ease;
+        cursor: default;
+      }
+      .ci:hover {
+        color: #aad4f5;
+        transform: translateX(3px);
+      }
+
+      /* ---------- Achievement item hover ---------- */
+      .aci {
+        transition: transform .15s ease;
+        cursor: default;
+      }
+      .aci:hover {
+        transform: translateX(5px);
+      }
+
+      /* ---------- Interest tag hover ---------- */
+      .htg {
+        transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+        cursor: default;
+      }
+      .htg:hover {
+        transform: translateY(-2px);
+        background: rgba(42,127,255,.18);
+        color: #7eb8f7;
+        border-color: rgba(42,127,255,.35);
+      }
+
+      /* ---------- Education item hover ---------- */
+      .edc {
+        transition: transform .15s ease;
+        cursor: default;
+      }
+      .edc:hover {
+        transform: translateX(4px);
+      }
+
+      /* ---------- Sidebar heading hover ---------- */
+      .sbh {
+        transition: color .2s ease, letter-spacing .2s ease;
+        cursor: default;
+      }
+      .sbh:hover {
+        color: #5db8ff;
+        letter-spacing: 2.4px;
+      }
+
+      /* ---------- Language dot hover ---------- */
+      .ldd.lon {
+        transition: box-shadow .15s ease, transform .15s ease;
+        cursor: default;
+      }
+      .ldd.lon:hover {
+        box-shadow: 0 0 7px rgba(42,127,255,.8);
+        transform: scale(1.35);
+      }
+
+      /* ---------- "Current" badge pulse ---------- */
+      .bcur {
+        animation: badgePulse 2.8s ease-in-out infinite;
+      }
+
+      /* ---------- Name shimmer on hover ---------- */
+      .header-info h1:hover {
+        background: linear-gradient(90deg, #ffffff 0%, #5db8ff 42%, #ffffff 80%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmerFlow 2.4s linear infinite;
+      }
+
+      /* ---------- Summary reveal ---------- */
+      @keyframes sumFadeUp {
+        from { opacity: 0; transform: translateY(16px); border-left-color: transparent; }
+        to   { opacity: 1; transform: translateY(0);   border-left-color: #2a7fff; }
+      }
+      .sumtxt {
+        opacity: 1;
+        border-left-color: #2a7fff;
+      }
+
+      /* ---------- Summary strong color pulse ---------- */
+      @keyframes strongColorPulse {
+        0%,100% { color: #1d4ed8; }
+        50%      { color: #38bdf8; }
+      }
+      .sumtxt.sum-revealed strong {
+        animation: strongColorPulse 1.8s ease 0.9s 2 normal;
+      }
+
+      /* ---------- Scroll progress bar ---------- */
+      @keyframes progGradShift {
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+      }
+      #scroll-prog {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(90deg, #1d4ed8, #0ea5e9, #38bdf8, #7c3aed, #0ea5e9);
+        background-size: 300% 100%;
+        z-index: 9999;
+        border-radius: 0 2px 2px 0;
+        pointer-events: none;
+        animation: progGradShift 3s linear infinite;
+        box-shadow: 0 0 8px rgba(42,127,255,.6);
+      }
+
+      /* ---------- Typewriter cursor ---------- */
+      @keyframes blinkCursor {
+        0%,100% { opacity: 1; }
+        50%      { opacity: 0; }
+      }
+      .cursor-blink {
+        display: inline-block;
+        width: 1.5px;
+        height: .82em;
+        background: #6aaee8;
+        margin-left: 2px;
+        vertical-align: middle;
+        border-radius: 1px;
+        animation: blinkCursor .7s step-end infinite;
+      }
+
+      /* ---------- Bullet list ---------- */
+      .bls li {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ---------- Tag staggered pop-in ---------- */
+      @keyframes tagPopIn {
+        from { opacity: 0; transform: scale(0.6) translateY(7px); }
+        to   { opacity: 1; transform: scale(1) translateY(0); }
+      }
+      .tgs .tg, .ctgs .ctg {
+        opacity: 1;
+      }
+
+      /* ---------- Proficiency bar shimmer after fill ---------- */
+      @keyframes barShimmer {
+        0%   { background-position: -100% 0; }
+        100% { background-position: 220% 0; }
+      }
+      .pbf.shimmer {
+        background: linear-gradient(90deg,
+          #1d4ed8 0%, #0ea5e9 35%, #93c5fd 50%, #0ea5e9 65%, #1d4ed8 100%);
+        background-size: 250% 100%;
+        animation: barShimmer 1.6s ease 1.5s 2 backwards;
+      }
+
+    }
+
+    /* ===================== PRINT ===================== */
+    @media print {
+
+      /* KEY FIX: html background repeats on EVERY printed page — creates the sidebar blue column across all pages */
+      html {
+        font-size: 13px;
+        background: linear-gradient(90deg, #0d1b2e 220px, #ffffff 220px) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      body {
+        background: transparent !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      .page {
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        min-height: unset;
+        overflow: visible !important;
+        background: transparent !important;
+      }
+
+      .page::after {
+        display: none;
+      }
+
+      .sidebar {
+        background: transparent !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      .header,
+      .header-accent {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      .main {
+        background: transparent !important;
+      }
+
+      .exc {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* Keep each sidebar section (achievements, languages, etc.) from splitting across pages */
+      .sb {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .print-tip {
+        display: none !important;
+      }
+
+      a {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+    }
+
+    @page {
+      margin: 0;
+      size: A4 portrait;
+    }
+  
