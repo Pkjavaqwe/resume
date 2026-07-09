@@ -11,7 +11,7 @@ After pushing to GitHub, enable Pages:
 1. Go to **Settings → Pages**
 2. Under **Build and deployment**, set **Source** to **Deploy from a branch**
 3. Choose branch `main` and folder `/ (root)`
-4. Your résumé will be available at: `https://pkjavaqwe.github.io/html-resume/resume.html`
+4. Your résumé will be available at: `https://pkjavaqwe.github.io/resume/`
 
 ## Customize
 
