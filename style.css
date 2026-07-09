@@ -106,10 +106,13 @@
       print-color-adjust: exact;
     }
 
-    /* If you have a real photo, replace this SVG with <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /> */
-    .photo-ring svg {
-      width: 54px;
-      height: 54px;
+    .photo-ring img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 32%;
+      border-radius: 50%;
+      display: block;
     }
 
     .hdr-name {
