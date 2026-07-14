@@ -114,6 +114,9 @@
             IDBI Bank&rsquo;s application from AngularJS to Angular 21 &mdash; reimplementing legacy patterns as
             custom Angular directives, integrating IBM MFP/Worklight banking APIs, and using AI-assisted
             tools (GitHub Copilot, Speckit) while meeting SonarQube and UAT standards.
+            Also built an event-driven Blog Platform microservices system with Node.js, Express, React, and
+            Apache Kafka for async messaging across Posts, Comments, Query, and Moderation services,
+            containerized with Docker and Kubernetes.
             Delivered applications built with Angular 17/21, NestJS. Proficient in TypeScript, RxJS, NestJS, and Agile delivery.
           </p>
         </div>
@@ -150,13 +153,35 @@
               <span class="pt ptt">TypeScript</span>
               <span class="pt ptt">AngularJS</span>
             </div>
-            <div class="bll">Key Contributions</div>
+            <div class="bll">Key Responsibilities</div>
             <ul class="bls">
               <li>Led end-to-end migration of a legacy AngularJS banking application to Angular 21, modernizing the full frontend stack.</li>
               <li>Integrated IBM MobileFirst Platform (MFP) / Worklight adapter APIs for secure banking operations.</li>
               <li>Reimplemented legacy AngularJS patterns as Angular directives, services, and standalone components.</li>
               <li>Accelerated migration using AI-assisted tooling (GitHub Copilot, Speckit) while maintaining code quality.</li>
               <li>Resolved SonarQube findings and UAT defects by debugging Angular/TypeScript issues against acceptance criteria.</li>
+            </ul>
+          </div>
+
+          <div class="prc" style="border-left-color:#0ea5e9; margin-top:9px;">
+            <div class="prn">Blog Platform &mdash; Event-Driven Microservices</div>
+            <div class="prcl">Client: <strong>ContentMesh</strong> &nbsp;|&nbsp; Distributed Content Management</div>
+            <div class="prm">
+              <span class="pt ptt">Node.js</span>
+              <span class="pt ptt">Express</span>
+              <span class="pt ptt">React</span>
+              <span class="pt ptt">Apache Kafka</span>
+              <span class="pt ptt">Docker</span>
+              <span class="pt ptt">Kubernetes</span>
+            </div>
+            <div class="bll">Key Responsibilities</div>
+            <ul class="bls">
+              <li>Built a microservices blog platform with Node.js, Express, and React for post creation, comments, moderation, and real-time query aggregation across independent services.</li>
+              <li>Designed an event-driven backend with an Event Bus propagating PostCreated, CommentCreated, CommentModerated, and CommentUpdated events across services.</li>
+              <li>Implemented event-driven communication with Apache Kafka for asynchronous messaging between Posts, Comments, Query, and Moderation services.</li>
+              <li>Built a moderation microservice that automatically filters comments and updates UI status via event propagation.</li>
+              <li>Implemented a query service that aggregates events into a unified read model and supports event replay on startup.</li>
+              <li>Containerized services with Docker Compose and enabled Kubernetes local development using Skaffold and K8s manifests.</li>
             </ul>
           </div>
 
@@ -170,7 +195,7 @@
               <span class="pt ptt">JWT</span>
               <span class="pt ptt">XLSX</span>
             </div>
-            <div class="bll">Key Contributions</div>
+            <div class="bll">Key Responsibilities</div>
             <ul class="bls">
               <li>Built database migrations, seeders, and performance indexes for high-volume activity log tables.</li>
               <li>Applied global validation pipes, exception filters, response transformers, and API throttling on backend APIs.</li>

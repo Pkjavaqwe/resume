@@ -1037,6 +1037,8 @@
         min-height: unset;
         overflow: visible !important;
         background: transparent !important;
+        /* Grid suppresses page-break; use block so Auto Loan can start on page 2 */
+        display: block !important;
       }
 
       .page::after {
@@ -1044,6 +1046,8 @@
       }
 
       .sidebar {
+        float: left;
+        width: 220px;
         background: transparent !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -1058,12 +1062,26 @@
       }
 
       .main {
+        margin-left: 220px;
+        width: auto;
+        overflow: visible !important;
         background: transparent !important;
       }
 
       .exc {
         page-break-inside: avoid;
         break-inside: avoid;
+      }
+
+      .prc {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* Force Auto Loan (and content after it) onto page 2 */
+      .prc-pagebreak {
+        page-break-before: always !important;
+        break-before: page !important;
       }
 
       /* Keep each sidebar section (achievements, languages, etc.) from splitting across pages */
